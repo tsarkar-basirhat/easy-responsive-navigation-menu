@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+* {padding:0px; margin:0px;}
+*, *::before, *::after { box-sizing: border-box;}
+
+.dropWrap{ position: relative; font-family: 'Open Sans', sans-serif;}
+.dropActive{ margin: 35px 0 0 0; border-bottom: 1px solid #ececec;}
+.dropActive > ul{ margin: 0; padding: 0; text-align: center;}
+.dropActive > ul > li{ list-style-type: none; position: relative; display: inline-block; margin: 0 28px;}
+.dropActive > ul > li.hasDropdown{ padding-right: 30px;}
+.dropActive > ul > li > a{ text-decoration: none; font-size: 17px; color: #282828; text-transform: uppercase; padding: 0 0 35px 0; display: inline-block; letter-spacing: 3px; position: relative;}
+
+.dropActive > ul > li ul{ position: absolute; z-index: 2; left: 0; top: 110%; width: 250px; opacity: 0; visibility: hidden; -webkit-transition: opacity 0.8s ease, top 0.5s ease; transition: opacity 0.8s ease, top 0.5s ease;}
+.dropActive > ul > li:hover > ul{ opacity: 1; visibility: visible; top: 100%;}
+.dropActive > ul > li ul li{ list-style-type: none; position: relative;}
+.dropActive > ul > li > ul > li:hover > a{ background: rgba(255,255,255,1);}
+.dropActive > ul > li ul li a{ text-decoration: none; display: block; background: #f9f9f9; text-align: left; padding: 10px 12px 10px 12px; color: #333; border-top: 1px solid rgba(0,0,0,.05); font-size: 14px;}
+.dropActive > ul > li ul li a:hover{ background: rgba(255,255,255,1);}
+
+.dropActive > ul > li ul li ul li a{ background: #f1f1f1;}
+
+.dropActive > ul > li ul li ul{ top: 0; left: 110%; -webkit-transition: opacity 0.8s ease, left 0.5s ease; transition: opacity 0.8s ease, left 0.5s ease;}
+.dropActive > ul > li ul li:hover ul{ opacity: 1; visibility: visible; left: 100%;}
+
+.subDrop{ position: absolute; width: 30px; height: auto; right: 0; top: 0; z-index: 2; font-size: 17px;}
+.dropActive > ul > li ul li .subDrop{ font-size: 14px; width: 30px; height: 40px; line-height: 40px; -webkit-transform: rotate(-90deg); transform: rotate(-90deg);}
+.dropToggle{ position: absolute; right: 15px; top: 15px; width: 50px; height: 50px; background: red; display: none;}
+
+
+/* Responsive --- */
+@media (max-width: 991px) {
+  .dropActive{ position: fixed; width: 50%; margin: 0; left: -100%; top: 0; background: #FFF; height: 100%; -webkit-transition: left 0.5s ease; transition: left 0.5s ease;}
+  .dropActive.open{ left: 0;}
+  .dropActive > ul > li{ display: block; text-align: left; margin: 0;}
+  .dropActive > ul > li.hasDropdown{ padding-right: 0;}
+  .dropActive > ul > li > a{ padding: 12px; display: block; border-bottom: 1px solid #e2e2e2; font-size: 15px;}
+  .dropActive > ul > li > a:after{ display: none;}
+
+  .dropActive > ul > li ul{ position: static; width: 100%; opacity: 1; visibility: visible; display: none;}
+  .dropActive > ul > li ul li a{ border-top: none; border-bottom: 1px solid rgba(0,0,0,0.1); padding-left: 25px;}
+  .dropActive > ul > li ul li ul li a{ padding-left: 40px;}
+
+  .subDrop{ height: 44px; text-align: center; line-height: 44px;}
+  .dropActive > ul > li ul li .subDrop{ -webkit-transform: rotate(0); transform: rotate(0); text-align: center;}
+}
+/* --- Responsive */
